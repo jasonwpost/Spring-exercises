@@ -11,7 +11,9 @@ public class AnnotationDemoApp {
 				new ClassPathXmlApplicationContext("applicationContext.xml");
 		
 		// get the bean from spring container
-		Coach theCoach = context.getBean("thatSillyCoach", Coach.class);
+		// using the default beanId means just using the name of the class
+		// with the first letter as lowercase
+		Coach theCoach = context.getBean("lifeCoach", Coach.class);
 		
 		// call method on the bean
 		System.out.println(theCoach.getDailyWorkout());
