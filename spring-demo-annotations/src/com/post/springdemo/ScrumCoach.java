@@ -5,6 +5,7 @@
 package com.post.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 // no explicit component name = default id, which is scrumCoach. 
@@ -15,7 +16,8 @@ public class ScrumCoach implements Coach {
 	private FortuneService fortuneService;
 	
 	@Autowired
-	public ScrumCoach(FortuneService fortuneService){
+	public ScrumCoach(@Qualifier("happyFortuneService")
+	FortuneService fortuneService){
 		this.fortuneService = fortuneService;
 	}
 

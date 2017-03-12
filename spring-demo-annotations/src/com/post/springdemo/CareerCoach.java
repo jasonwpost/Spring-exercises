@@ -1,10 +1,11 @@
 /*
- * This class demonstrates the field injection
+ * This class demonstrates field injection
  */
 
 package com.post.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,6 +15,7 @@ public class CareerCoach implements Coach {
 	 * even though this is private, spring will still set this
 	 */
 	@Autowired
+	@Qualifier("happyFortuneService")
 	private FortuneService fortuneService;
 
 	@Override
