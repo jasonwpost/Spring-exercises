@@ -1,3 +1,7 @@
+/*
+ * This class demonstrates constructor injection
+ */
+
 package com.post.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;

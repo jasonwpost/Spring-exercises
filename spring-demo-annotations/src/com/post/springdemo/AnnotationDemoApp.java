@@ -1,3 +1,7 @@
+/*
+ * Choose a style of injection and stay consistent. 
+ */
+
 package com.post.springdemo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,8 +16,8 @@ public class AnnotationDemoApp {
 		
 		// get the bean from spring container
 		// using the default beanId means just using the name of the class
-		// with the first letter as lowercase
-		Coach theCoach = context.getBean("lifeCoach", Coach.class);
+		// with the first letter as lower case
+		Coach theCoach = context.getBean("careerCoach", Coach.class);
 		
 		// call method on the bean
 		System.out.println(theCoach.getDailyWorkout());

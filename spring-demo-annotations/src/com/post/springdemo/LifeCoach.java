@@ -1,3 +1,7 @@
+/*
+ * This class demonstrates method/setter injection
+ */
+
 package com.post.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +25,6 @@ public class LifeCoach implements Coach {
 	public void setFortuneService(FortuneService theFortuneService){
 		fortuneService = theFortuneService;
 	}
-	
-	
-	/*
-	 * constructor injection example
-	@Autowired
-	public LifeCoach(FortuneService fortuneService){
-		this.fortuneService = fortuneService;
-	}
-	*/
 
 	@Override
 	public String getDailyWorkout() {
