@@ -7,32 +7,29 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 	
-	<!-- load the properties file: sport.properties -->
-	<context:property-placeholder location="classpath:sport.properties"/>
+	
     <!-- Define your beans here -->
     
     <!-- Define the dependency -->
     <bean id="myFortuneService"
     	class="com.luv2code.springdemo.StressfulFortuneService">
     </bean>
-    
+    <!-- By default, a bean's scope is singleton / all references
+    	 point to the same bean -->
+    <!-- But can change to individual construction by using the 
+    	 prototype scope -->
+    <!-- Init and Destroy methods must be public void and not
+    	 take any arguments -->
     <bean id="myCoach"
-    	class="com.luv2code.springdemo.BaseballCoach">
+    	class="com.luv2code.springdemo.TrackCoach"
+    	init-method="doMyStartUpStuff"
+    	destroy-method="doMyCleanUpStuff">
     	
     	<!-- set up constructor injection -->
     	<constructor-arg ref="myFortuneService"/>
     </bean>
     
-    <bean id="myCricketCoach"
-    	class="com.luv2code.springdemo.CricketCoach">
-    	
-    	<!-- set up setter injection -->
-    	<property name="fortuneService" ref="myFortuneService" />
-    	
-  		<!-- inject literal values -->
-  		<property name="emailAddress" value="${foo.email}" />
-  		<property name="team" value="${foo.team}" />
-    </bean>
+    
     
 </beans>
 
