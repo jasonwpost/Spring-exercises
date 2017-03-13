@@ -4,6 +4,9 @@
 
 package com.post.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,5 +47,18 @@ public class LifeCoach implements Coach {
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
 	}
-
+	
+	// define my init method
+	@PostConstruct
+	public void doMyStartUpStuff(){
+		System.out.println(">> in doMyStartUpStuff");
+	}
+	
+	// define my destroy method
+	// Note that for prototype scoped beans,
+	// Spring does not call the Destroy method
+	@PreDestroy
+	public void doMyCleanUpStuff(){
+		System.out.println(">> in doMyCleanUpStuff");
+	}
 }
