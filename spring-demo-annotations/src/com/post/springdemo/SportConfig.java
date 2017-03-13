@@ -3,11 +3,13 @@ package com.post.springdemo;
 import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 // We only want to make use of the two beans defined below, so the 
 // component scan is commented out
 // @ComponentScan("com.post.springdemo") // scans the specified package
+@PropertySource("classpath:sport.properties")
 public class SportConfig {
 	
 	// define bean for our sad fortune service

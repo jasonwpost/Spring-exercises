@@ -17,13 +17,17 @@ public class SpinJavaConfigDemoApp {
 		// get the bean from spring container
 		// using the default beanId means just using the name of the class
 		// with the first letter as lower case
-		Coach theCoach = context.getBean("spinCoach", Coach.class);
+		SpinCoach theCoach = context.getBean("spinCoach", SpinCoach.class);
 		
 		// call method on the bean
 		System.out.println(theCoach.getDailyWorkout());
 		
 		// call method to get the daily fortune
 		System.out.println(theCoach.getDailyFortune());
+		
+		System.out.println("Email: " + theCoach.getEmail());
+		
+		System.out.println("Team: " + theCoach.getTeam());
 		
 		// close the context
 		context.close();
