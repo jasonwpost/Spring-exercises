@@ -9,5 +9,10 @@
 		<br><br>
 		
 		Student name: ${param.studentName}
+		
+		<br><br>
+		<!-- accesses the message attribute
+			 from the model -->
+		The message: ${message}
 	</body>
 </html>
