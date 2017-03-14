@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.post.hibernate.demo.entity.Student;
 
-public class UpdateStudentDemo {
+public class DeleteStudentDemo {
 
 	public static void main(String[] args) {
 		
@@ -21,7 +21,7 @@ public class UpdateStudentDemo {
 		
 		try {
 			
-			int studentId = 2;
+			int studentId = 1;
 			
 			// now get a new session and start transaction
 			session = factory.getCurrentSession();
@@ -31,11 +31,19 @@ public class UpdateStudentDemo {
 			Student myStudent = session.get(Student.class, studentId);
 			System.out.println("Get complete: " + myStudent);
 			
-			// delete the student
-			// session.delete(myStudent);
+			System.out.println("Updating student ... ");
+			myStudent.setFirstName("Scooby");
 			
-			// delete student id=2
-			session.createQuery("delete from Student where id=2").executeUpdate();
+			// commit the transaction
+			session.getTransaction().commit();
+			
+			// Bulk Update
+			session = factory.getCurrentSession();
+			session.beginTransaction();
+			
+			// update email for everyone
+			
+			session.createQuery("update Student set email='foo@gmail.com'").executeUpdate();
 			
 			// commit the transaction
 			session.getTransaction().commit();
